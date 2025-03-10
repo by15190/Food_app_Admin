@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Food_app Admin</string>
-    <string name="web_client_id">360022051676-i35ulhjb7g48ikrg000sf9cef2bohdj5.apps.googleusercontent.com</string>
+    <string name="web_client_id">"you web client id"</string>
 </resources>
