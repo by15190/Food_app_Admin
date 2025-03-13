@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 
+
 class AddItemActivity : AppCompatActivity() {
     private lateinit var foodName: String
     private lateinit var foodPrice: String
@@ -81,7 +82,7 @@ class AddItemActivity : AppCompatActivity() {
 
         // database reference
         val Menuref =
-            database.getReference("menu") //This gets a reference to the "menu" child node in the Firebase Realtime Database.
+            database.reference.child("menu") // This gets a reference to the "menu" child node in the Firebase Realtime Database.
         // Generate a key unique for each menu item
         val newKey = Menuref.push().key
         // /// This generates a new, unique child node under the "menu" reference.
@@ -105,6 +106,8 @@ class AddItemActivity : AppCompatActivity() {
                     Menuref.child(key!!).setValue(newItem).addOnSuccessListener {
                         Toast.makeText(this, "data uploaded successfully", Toast.LENGTH_SHORT)
                             .show()
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Failed to save data", Toast.LENGTH_SHORT).show()
                     }
                 }
             }.addOnFailureListener {

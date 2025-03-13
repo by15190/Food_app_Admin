@@ -103,7 +103,7 @@ class allitemmenuActivity : AppCompatActivity() {
     fun deleteitem(position: Int) {
         val menuitemToDelete = menuitems[position]
         val menuitemKey = menuitemToDelete.key
-        val foodmenuref = database.reference.child("menu").child(menuitemKey)
+        val foodmenuref = database.reference.child("menu").child(menuitemKey.toString())
 
         foodmenuref.removeValue().addOnCompleteListener() { task ->
             if (task.isSuccessful) {

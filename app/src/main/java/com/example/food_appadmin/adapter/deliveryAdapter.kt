@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.food_appadmin.databinding.ItemForDeliveryrvBinding
 
+
 class deliveryAdapter(
     private val customerNames: MutableList<String>,
     private val paymentStatus: MutableList<Boolean>, // received or not received
