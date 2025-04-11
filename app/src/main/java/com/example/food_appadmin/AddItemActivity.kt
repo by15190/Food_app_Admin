@@ -92,8 +92,8 @@ class AddItemActivity : AppCompatActivity() {
         val storageRef = FirebaseStorage.getInstance().reference
         val imageRef = storageRef.child("menu_images/${newKey}.jpg")
         val uploadimage = imageRef.putFile(foodImageURI!!)
-        uploadimage.addOnSuccessListener {
-            imageRef.downloadUrl.addOnSuccessListener { downloadURI ->
+        uploadimage.addOnCompleteListener {
+            imageRef.downloadUrl.addOnCompleteListener { downloadURI ->
                 val newItem = foodItems(
                     newKey.toString(),
                     foodName,
